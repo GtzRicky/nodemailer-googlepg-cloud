@@ -23,15 +23,15 @@ app.use(urlencoded({ extended: true }));
 // NODEMAILER
 app.post("/enviar-correo", async (req, res, next) => {
 
-    const {subject, to} = req.body;
+    const {subject, to, text} = req.body;
     try {
-        const pathTemplate= path.resolve("src", "views/email-templates", "bienvenida.html");
+        // const pathTemplate= path.resolve("src", "views/email-templates", "bienvenida.html");
 
-        const template = await ejs.renderFile(pathTemplate)
+        // const template = await ejs.renderFile(pathTemplate)
         
         const options = {
             subject,
-            html: template,
+            text,
             to,
             from: 'Mirai <patito2123htp84@gmail.com>'
         };
