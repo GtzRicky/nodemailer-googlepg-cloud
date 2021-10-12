@@ -14,7 +14,7 @@ app.use(urlencoded({ extended: true }));
 // NODEMAILER
 app.post("/enviar-correo", async (req, res, next) => {
 
-    const {subject, to, text, email} = req.body;
+    const {subject, to, text, email, name} = req.body;
     // const email = 'mikegutierrez@gmail.com';
     try {
         // const pathTemplate= path.resolve("src", "views/email-templates", "bienvenida.html");
@@ -23,7 +23,7 @@ app.post("/enviar-correo", async (req, res, next) => {
         
         const options = {
             subject,
-            text,
+            text: `${name} ${text}`,
             to,
             from: `${email} <patito2123htp84@gmail.com>`
         };
