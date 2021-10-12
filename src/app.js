@@ -45,7 +45,7 @@ app.post("/enviar-correo", async (req, res, next) => {
     }
 });
 
-// MULTER
+// MULTER -> Manejo de archivos y almacenamiento en servidores -> AWS AZURE
 
 app.post("/subir-archivo", upload.single('file'), (req, res, next) => {
     res.json({
