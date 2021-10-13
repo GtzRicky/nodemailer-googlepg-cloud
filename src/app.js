@@ -27,9 +27,10 @@ app.post("/enviar-correo", async (req, res, next) => {
             to,
             from: `${email} <patito2123htp84@gmail.com>`
         };
-    
+        
+        console.log(options);
         const response = await sendMail(options);
-    
+
         res.json(response);
     } catch (error) {
         console.log(error);
